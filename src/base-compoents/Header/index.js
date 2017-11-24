@@ -8,13 +8,14 @@ import backIcon from './back.png';
  */
 class Header extends Component { 
     render() {
+        const {title,onLeftClick,rightContent}=this.props;
         return (
             <div className={styles.header}>
-                <div className={styles.leftContent} onClick={this.props.onLeftClick}> 
+                <div className={styles.leftContent} onClick={onLeftClick}> 
                     <img  src={backIcon} alt='' />
                  </div>
-                <span className={styles.title} >{this.props.title}</span>
-                <div className={styles.rightContent} >{this.props.rightContent}</div>
+                <span className={styles.title} >{title}</span>
+                <div className={styles.rightContent} >{rightContent}</div>
             </div>
         );
     }

@@ -15,10 +15,11 @@ class NavButton extends Component {
     
     render() {
         const act=this.state.active?styles.active:"";
+        const {to,replace,style}=this.props;
         return (
-            <Link to={this.props.to} replace={this.props.replace}  style={this.props.style}
+            <Link to={to} replace={ replace}  style={ style}
             className={styles.button+' '+act} onTouchStart={this.handleStart} onTouchEnd={this.handleEnd}>
-                <span>{this.props.children}</span>
+                <span>{ children}</span>
             </Link>
         );
     }

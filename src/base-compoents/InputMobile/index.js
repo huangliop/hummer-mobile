@@ -12,10 +12,13 @@ class InputMobile extends Component {
     }
     
     render() { 
+        const {className,disabled,onChange,defaultValue}=this.props;
+        let {mobile}=this.props;
+        mobile=mobile?mobile:'';
         return (
-        <div className={`${this.props.className} ${styles.inputItem}`}>
+        <div className={`${className} ${styles.inputItem}`}>
             <span>手机号</span>
-            <input placeholder="手机号码" defaultValue={this.props.defaultValue} disabled={this.props.disabled} value={this.props.mobile} 
+            <input placeholder="手机号码" defaultValue={defaultValue} disabled={disabled} value={mobile} 
             maxLength={11} 
             ref={(input)=>this.input=input}
             onChange={this.handleChange} /> 

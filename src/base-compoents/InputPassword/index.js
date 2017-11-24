@@ -12,10 +12,11 @@ class InputPassword extends Component {
     }
     render() {
         const placeholder=this.props.placeholder?this.props.placeholder:"密码"
+        const {inputRef,className}=this.props;
         return (
-            <div className={`${this.props.className} ${styles.inputItem}`}>
+            <div className={`${className} ${styles.inputItem}`}>
                 <span>密码</span>
-                <input placeholder={placeholder} value={this.state.pwd} type='password'  ref={this.props.inputRef} maxLength={16} onChange={this.handleChange}  />
+                <input placeholder={placeholder} value={this.state.pwd} type='password'  ref={inputRef} maxLength={16} onChange={this.handleChange}  />
                 {this.state.showClose&&<div onClick={this.handleClick}/>}
             </div>
         );
