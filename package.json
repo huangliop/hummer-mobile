@@ -1,7 +1,8 @@
 {
   "name": "mobile-template",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
+  "homepage": "https://www.my.com/mobile",
   "proxy": "https://my.com/api",
   "dependencies": {
     "antd-mobile": "^2.0.3",
