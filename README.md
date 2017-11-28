@@ -1,4 +1,5 @@
-本模板工程为快速开发适配手机屏幕的网页。整合了React、antd-mobile、mobx等框架，能让开发者从搭建工程到发布够开箱即用。
+本模板工程为快速开发适配手机屏幕的网页而设计。
+整合了React、antd-mobile、mobx等框架，能让开发者从搭建工程到发布做到开箱即用。
 
 ## 目录结构
 
@@ -55,8 +56,8 @@ App构建出发布的文件到 `build` 目录.<br>
 关于 [发布](#deployment) .
 
 ## 自定义WebPack配置
-    如果你先自定义webpack的配置，请编辑config-overrides.js。因为使用了react-app-rewired插件所以不需要执行 eject命令。
-    具体使用方法请常见 [https://github.com/timarney/react-app-rewired](https://github.com/timarney/react-app-rewired)
+如果你先自定义webpack的配置，请编辑config-overrides.js。因为使用了react-app-rewired插件所以不需要执行 eject命令。
+具体使用方法请常见 [https://github.com/timarney/react-app-rewired](https://github.com/timarney/react-app-rewired)
 
 
 ## Debugging in the Editor
