@@ -12,7 +12,7 @@ class InputMobile extends Component {
     }
     
     render() { 
-        const {className,disabled,onChange,defaultValue}=this.props;
+        const {className,disabled,defaultValue}=this.props;
         let {mobile}=this.props;
         mobile=mobile?mobile:'';
         return (
@@ -20,7 +20,7 @@ class InputMobile extends Component {
             <span>手机号</span>
             <input placeholder="手机号码" defaultValue={defaultValue} disabled={disabled} value={mobile} 
             maxLength={11} 
-            ref={(input)=>this.input=input}
+            ref={this.inputRef}
             onChange={this.handleChange} /> 
             {this.state.showClose&&<div onClick={this.handleClick}/>}
         </div>
@@ -38,6 +38,9 @@ class InputMobile extends Component {
         this.input.value='';
         //触发Change事件
         this.handleChange({target:this.input}) 
+    }
+    inputRef=(input)=>{
+        this.input=input;
     }
 }
 InputMobile.propTypes = {

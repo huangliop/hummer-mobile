@@ -11,7 +11,7 @@ class InputPassword extends Component {
         this.state={showClose:false,pwd:''};
     }
     render() {
-        const placeholder=this.props.placeholder?this.props.placeholder:"密码"
+        const placeholder=this.props.placeholder||"密码";
         const {inputRef,className}=this.props;
         return (
             <div className={`${className} ${styles.inputItem}`}>
