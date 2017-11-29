@@ -1,5 +1,7 @@
 本模板工程为快速开发适配手机屏幕的网页而设计。
 整合了React、antd-mobile、mobx等框架，能让开发者从搭建工程到发布做到开箱即用。
+## 推荐编辑器
+[Visual Studio Code](https://code.visualstudio.com/)
 
 ## 目录结构
 
