@@ -135,6 +135,8 @@ export default Header;
   background-image: url(./logo.png);
 }
 ```
+## 使用VSCode调试
+本工程可以使用VSCode进行调试。
 
 ## Adding Bootstrap
 

@@ -4,6 +4,12 @@ import ResponseCode from '../transport-layer/ResponseCode';
 
 import UserStore from './UserStore';
 import UIStore from './UIStore';
+import OrderStore from './OrderStore';
+import ActiveListStore from './ActiveListStore';
+import CartStore from './CartStore';
+import GoodsStore from './GoodsStore';
+import { action } from 'mobx';
+import { Toast } from 'antd-mobile';
 
 class RootStore {
   constructor() {
@@ -16,24 +22,26 @@ class RootStore {
    * 发送POST请求
    * @param {*请求地址} url
    * @param {*参数} params
-   * @param {*不显示loading图像} noLoading
+   * @param {*显示loading图像} showLoading
    */
-  sendPost(url, _params, noLoading) {
+  sendPost(url, _params, showLoading) {
+    showLoading && this.showLoading();
     const params = this._buildParams(_params);
     return this.agent
-      .post(url, params, noLoading)
+      .post(url, params)
       .then(json => this._handleData(json, url, params));
   }
   /**
    * 发生GET请求
    * @param {*请求地址} url
    * @param {*参数} params
-   * @param {*不显示loading图像} noLoading
+   * @param {*不显示loading图像} showLoading
    */
-  sendGet(url, _params, noLoading) {
+  sendGet(url, _params, showLoading) {
+    showLoading && this.showLoading();
     const params = this._buildParams(_params);
     return this.agent
-      .get(url, params, noLoading)
+      .get(url, params)
       .then(json => this._handleData(json, url, params));
   }
   /**
@@ -41,17 +49,20 @@ class RootStore {
    * @param {*提示内容} msg
    */
   showToast(msg) {
-    this.agent.showToast(msg);
+    Toast.hide();
+    Toast.info(msg, 3, null, false);
   }
   /**
    * 显示加载框，期间不可操作
    * @param {*下面显示的提示内容，默认‘加载中’} msg
    */
-  showLoading(msg) {
-    this.agent.showLoading(msg);
+  @action
+  showLoading() {
+    this.UIStore.isShowLoading = true;
   }
+  @action
   hideLoading() {
-    this.agent.hideLoading();
+    this.UIStore.isShowLoading = false;
   }
   /**
    * 构建参数
@@ -78,16 +89,16 @@ class RootStore {
    * @param {*获取到的结果} json
    */
   _handleData(json, url, params) {
+    this.hideLoading();
     if (!json || !json.result) return {};
     switch (json.result) {
-      //这里可以根据接口实际情况修改
+      //获取数据成功
       case '0':
+      case 'true':
         return json;
-      /**
-       * 如果需要自动刷新token 请在这里写
-       */
-      // case '-1':
-      // return this.UIStore.refreshToken(url,params);
+      //token过期
+      case '-1':
+        return this.UIStore.refreshToken(url, params);
       default:
         console.log(`Requst is get Error,Code :${json.result}`);
         const msg = ResponseCode.showMsg(json.result);
