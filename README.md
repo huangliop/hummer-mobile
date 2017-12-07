@@ -12,6 +12,7 @@ my-app/
   README.md
   node_modules/
   package.json
+  server.js 
   public/
     index.html
     favicon.ico
@@ -19,6 +20,7 @@ my-app/
     base-compoents/
     stores/
     transport-layer/
+    pages/
     App.css
     App.js
     App.test.js
@@ -33,6 +35,8 @@ my-app/
 JS和CSS就反正这个目录下。
 
 `public` 目录存放入口文件 `public/index.html`,如果要引入第三方JS可以放在这个目录<br>
+
+`server.js` 发布时的服务器使用，主要用来代理跨域的接口。<br>
  
 ## 可用的脚本
 
