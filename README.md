@@ -7,13 +7,12 @@
 
 - [文件结构](#文件结构)
 - [可用的脚本](#可用的脚本)
-- [自定义WebPack配置](#自定义WebPack配置)
-- [提交代码自动格式化(只有使用Git作为代码服务器时有效)](#提交代码自动格式化(只有使用Git作为代码服务器时有效))
+- [自定义WebPack配置](#自定义配置)
+- [提交代码自动格式化](#提交代码自动格式化)
 - [修改标题](#修改标题)
-- [异步加载组件（页面）](#异步加载组件（页面）)
-- [CSS样式编写](#CSS样式编写)
-- [引入图片、文件等资源](#引入图片、文件等资源)
-- [使用VSCode调试](#使用VSCode调试)
+- [异步加载组件](#异步加载组件)
+- [CSS样式编写](#样式编写)
+- [引入图片、文件等资源](#引入图片等资源)
 - [添加自定义的环境变量](#添加自定义的环境变量)
 - [调用接口](#调用接口)
 - [在开发中使用https](#在开发中使用https) 
@@ -74,11 +73,13 @@ App构建出发布的文件到 `build` 目录.<br>
 
 关于 [发布](#deployment) .
 
-## 自定义WebPack配置
+## 自定义配置
 如果你先自定义webpack的配置，请编辑config-overrides.js。因为使用了react-app-rewired插件所以不需要执行 eject命令。
 具体使用方法请常见 [https://github.com/timarney/react-app-rewired](https://github.com/timarney/react-app-rewired)
 
-## 提交代码自动格式化(只有使用Git作为代码服务器时有效)
+## 提交代码自动格式化
+
+>只有使用Git作为代码服务器时有效
 
 使用以下插件 husky lint-staged prettier 实现在提交代码时，自动进行格式化
 To format our code whenever we make a commit in git, we need to install the following dependencies:
@@ -88,7 +89,7 @@ To format our code whenever we make a commit in git, we need to install the foll
 如果要修改网页标题，请在到public下的html中的<title>标签修改。
 
 
-## 异步加载组件（页面）
+## 异步加载组件
 
 因为默认情况下，webpack会将引用到的包都打包到同一个JS文件中，所以可能入口js文件可能会很大。
 为了使用之变小，在使用react-router打开组件时，请使用如下方法引入
@@ -125,7 +126,7 @@ class Button extends Component {
 }
 ```
  
-## 引入图片、文件等资源
+## 引入图片等资源
 
 为了减小Http的请求数目，在打包时webpack会将小于10k的图片直接转换成base64字符串放在html中。
 **目前只支持bmp,gif,jpg,jpeg,png**
