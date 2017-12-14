@@ -16,6 +16,7 @@
 - [添加自定义的环境变量](#添加自定义的环境变量)
 - [调用接口](#调用接口)
 - [在开发中使用https](#在开发中使用https) 
+- [应用第三方JS](#应用第三方JS)
 
 ## 文件结构
 
@@ -154,7 +155,8 @@ export default Header;
 }
 ```
 ## 使用VSCode调试
-本工程可以使用VSCode进行调试。
+
+本工程可以使用VSCode进行调试。但需要先安装这个[Debugger for Chrome](#https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
 
 ## 添加自定义的环境变量
 
@@ -254,3 +256,12 @@ set HTTPS=true&&npm start
 ```bash
 HTTPS=true npm start
 ```
+## 应用第三方JS
+
+### node模块引用
+
+使用npm安装后，直接在js文件中import即可。
+
+### 单个JS文件应用
+
+如果文件符合AMD/CMD规范可以直接import，如果不符合请在public/index.html中引入

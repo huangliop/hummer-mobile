@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styles from './index.css';
+import closeIcon from './close-circled.png';
+
 /**
  * 密码输入组件
  * 可以被其他应用复用，所以放在Base-Compoents下
@@ -13,9 +15,10 @@ class InputPassword extends Component {
   render() {
     const placeholder = this.props.placeholder || '密码';
     const { inputRef, className } = this.props;
+    const lable = this.props.lable || '密码';
     return (
       <div className={`${className || ''} ${styles.inputItem}`}>
-        <span>密码</span>
+        <span>{lable}</span>
         <input
           placeholder={placeholder}
           value={this.state.pwd}
@@ -24,7 +27,9 @@ class InputPassword extends Component {
           maxLength={16}
           onChange={this.handleChange}
         />
-        {this.state.showClose && <div onClick={this.handleClick} />}
+        {this.state.showClose && (
+          <img src={closeIcon} alt="Close" onClick={this.handleClick} />
+        )}
       </div>
     );
   }
@@ -52,7 +57,11 @@ InputPassword.propTypes = {
   /**
    * 样式
    */
-  className: PropTypes.string
+  className: PropTypes.string,
+  /**
+   * 密码lable
+   */
+  lable: PropTypes.string
 };
 
 export default InputPassword;
