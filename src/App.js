@@ -1,23 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Async from 'react-code-splitting';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { useStrict } from 'mobx';
+import { Provider } from 'mobx-react';
+import rootStore from './stores/RootStore';
+import { AnimatedSwitch } from 'react-router-transition';
+
+useStrict(true);
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} 
-          className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-
-
-
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p> 
-      </div>
+      <Provider {...rootStore}>
+        <Router>
+          <AnimatedSwitch
+            className="switch-wrapper"
+            atEnter={{ opacity: 0 }}
+            atLeave={{ opacity: 0 }}
+            atActive={{ opacity: 1 }}
+          >
+            <Route
+              path="/"
+              exact
+              component={() => <Async load={import('./pages/Home')} />}
+            />
+            <Route
+              path="/login"
+              exact
+              component={() => <Async load={import('./pages/Login')} />}
+            />
+          </AnimatedSwitch>
+        </Router>
+      </Provider>
     );
   }
 }

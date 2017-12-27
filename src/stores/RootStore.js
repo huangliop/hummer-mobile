@@ -4,10 +4,6 @@ import ResponseCode from '../transport-layer/ResponseCode';
 
 import UserStore from './UserStore';
 import UIStore from './UIStore';
-import OrderStore from './OrderStore';
-import ActiveListStore from './ActiveListStore';
-import CartStore from './CartStore';
-import GoodsStore from './GoodsStore';
 import { action } from 'mobx';
 import { Toast } from 'antd-mobile';
 
