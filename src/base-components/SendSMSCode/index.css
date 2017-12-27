@@ -24,6 +24,7 @@
   margin-right: 30px;
 }
 :local .btnMsCode {
-  width: 130px;
+  width: 100px;
   margin-right: 10px;
+  padding: 0;
 }

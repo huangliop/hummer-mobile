@@ -17,9 +17,10 @@ class InputPassword extends Component {
     const { inputRef, className } = this.props;
     const lable = this.props.lable || '密码';
     return (
-      <div className={`${className || ''} ${styles.inputItem}`}>
+      <form className={`${className || ''} ${styles.inputItem}`}>
         <span>{lable}</span>
         <input
+          autoComplete="off"
           placeholder={placeholder}
           value={this.state.pwd}
           type="password"
@@ -30,7 +31,7 @@ class InputPassword extends Component {
         {this.state.showClose && (
           <img src={closeIcon} alt="Close" onClick={this.handleClick} />
         )}
-      </div>
+      </form>
     );
   }
   handleChange = e => {

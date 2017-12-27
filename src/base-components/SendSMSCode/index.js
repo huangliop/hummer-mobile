@@ -10,7 +10,8 @@ class SendSMSCode extends Component {
     super(props);
     this.state = {
       msCodeCountdown: this.props.countDown + 1,
-      btnTxt: '发送验证码'
+      btnTxt: '发送验证码',
+      inputEnabled: this.props.disabled
     };
   }
 
@@ -23,7 +24,7 @@ class SendSMSCode extends Component {
   }
   render() {
     const cd = this.state.msCodeCountdown;
-    const inputEnabled = cd < this.props.countDown && cd >= 0;
+    // const inputEnabled=cd<this.props.countDown&&cd>=0;
     const btnEnabled = cd < 0 || cd > this.props.countDown;
     return (
       <div className={`${this.props.className || ''} ${styles.inputItem}`}>
@@ -31,7 +32,7 @@ class SendSMSCode extends Component {
         <input
           placeholder="短信验证码"
           ref={this.props.inputRef}
-          disabled={!inputEnabled || this.props.disabled}
+          disabled={this.state.inputEnabled}
           maxLength={6}
         />
         <Button
@@ -50,11 +51,13 @@ class SendSMSCode extends Component {
     this.props.sendRequest().then(success => {
       if (success) {
         this.setState({
-          msCodeCountdown: 60,
-          btnTxt: `再次发送(${this.props.countDown})`
+          msCodeCountdown: this.props.countDown,
+          btnTxt: `再次发送(${this.props.countDown})`,
+          inputEnabled: false
         });
         this.injecterval = setInterval(() => {
-          let countdown = --this.state.msCodeCountdown;
+          let countdown = this.state.msCodeCountdown;
+          countdown--;
           let txt = `再次发送(${countdown})`;
           if (countdown < 1) {
             clearInterval(this.injecterval);

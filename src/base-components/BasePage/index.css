@@ -1,0 +1,9 @@
+:local .basePage {
+  width: 100%;
+  top: 0;
+  background-color: #eeeeee;
+  height: 100%;
+  display: -webkit-flex;
+  flex-direction: column;
+  z-index: 101; /*这里设置大于100，主要是为能够覆盖antd-mobile的tabbar组件，其z-index为100*/
+}
