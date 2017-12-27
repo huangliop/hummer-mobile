@@ -88,7 +88,8 @@ To format our code whenever we make a commit in git, we need to install the foll
 ## 修改标题
 
 如果要修改网页标题，请在到public下的html中的<title>标签修改。
-
+还可替换favicon.ico为自己的ico。
+manifest.json中的信息也一并修改。
 
 ## 异步加载组件
 
