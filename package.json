@@ -1,6 +1,6 @@
 {
   "name": "mobile-template",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": true,
   "homepage": "https://www.my.com/mobile",
   "proxy": "https://my.com/api",
@@ -24,7 +24,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [
-      "prettier --single-quote --write",
+      "prettier --single-quote --write",  
       "git add"
     ]
   },
@@ -36,7 +36,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "babel-plugin-import": "^1.6.2",
-    "react-app-rewired": "^1.3.4"
+    "babel-plugin-import": "^1.6.3",
+    "react-app-rewired": "^1.4.0"
   }
 }
