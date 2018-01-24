@@ -13,7 +13,7 @@ class PersistData{
         reaction(
             ()=>store[name],
             data=>{
-                if(data){
+                if(typeof data==="undefined"){
                     const type=typeof data;
                    data=  type ==='string' ||type==='number' ?data:JSON.stringify(data);
                     window.localStorage.setItem(store.constructor.name+"_"+ name,data);
