@@ -81,20 +81,22 @@ class RootStore {
     return params;
   }
   /**
-   * 处理获取的结果（主要是为了实现token自动刷新功能）
+   * 处理获取的结果，
+   * 1.为了实现token自动刷新功能
+   * 2.实现自动根据transport-layer/ResponseCode中的错误信息显示
    * @param {*获取到的结果} json
    */
   _handleData(json, url, params) {
     this.hideLoading();
-    if (!json || !json.result) return {};
+    if (!json || json.result===undefined) return {};
     switch (json.result) {
       //获取数据成功
       case '0':
-      case 'true':
         return json;
       //token过期
       case '-1':
         return this.UIStore.refreshToken(url, params);
+      //自动显示错误信息
       default:
         console.log(`Requst is get Error,Code :${json.result}`);
         const msg = ResponseCode.showMsg(json.result);
