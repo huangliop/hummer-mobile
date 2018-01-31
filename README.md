@@ -218,7 +218,8 @@ if (process.env.NODE_ENV !== 'production') {
 ```
 
 ## 调用接口
-*请先到stores/RootStore.js中的_handleData方法中更具自己接口返回结果的格式情况，进行修改*
+>请先到stores/RootStore.js中的_handleData方法中根据自己接口返回结果的格式情况，进行修改
+
 由于现在都是前后的分离的，前端调用的接口都是跨域的，所以需要进行代理
 
 在本地开发的时候，你只需要将相对路径配到./src/transport-layer/ApiUrl.js中即可。
