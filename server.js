@@ -12,7 +12,10 @@ const context = ['/api'];
 //配置要代理到的接口地址，域名和ip都可以
 const options = {
     target: 'http://127.0.0.1:8081',
-    changeOrigin: true
+    changeOrigin: true,
+    pathRewrite:{
+      '^/api':'' //重写代理的路径，如http://localhost:8888/api/login会被代理到http://127.0.0.1:8081/login
+    }
 }
 //将options对象用proxy封装起来，作为参数传递
 const apiProxy = proxy(options);
@@ -24,4 +27,4 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-app.listen(8191);
+app.listen(8888);
