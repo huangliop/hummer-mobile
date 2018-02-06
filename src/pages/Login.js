@@ -5,7 +5,7 @@ import BasePage from '../base-components/BasePage';
 class Login extends Component {
   render() {
     return (
-      <BasePage title="登录">
+      <BasePage title="登录成功">
         <div className={styles.main}>
           <h2>这是登录页</h2>
         </div>

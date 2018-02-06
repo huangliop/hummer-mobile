@@ -20,7 +20,14 @@ const options = {
 //将options对象用proxy封装起来，作为参数传递
 const apiProxy = proxy(options);
 app.use(context, apiProxy)
-
+/*
+*打印收到请求的URL，用于调试某些时候无法接受到请求的问题。
+*如果需要请解开注释
+*/
+// app.use('/',function(req,res,next){ 
+//   console.log(`Receive URL: ${req.path}`);
+//   next()
+// });
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/', function (req, res) {
