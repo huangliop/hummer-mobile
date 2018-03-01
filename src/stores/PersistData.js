@@ -33,12 +33,19 @@ class PersistData {
     );
   }
   /**
-   *
+   * 获取转换被存储的字段，如果能转换为对象，则会自动转换为对象
    * @param {*字段名} name
    * @param {*Store名} store
    */
   get(name, store) {
-    return window.localStorage.getItem(store.constructor.name + '_' + name);
+    const str = window.localStorage.getItem(
+      store.constructor.name + '_' + name
+    );
+    try {
+      return JSON.parse(str);
+    } catch (error) {
+      return str;
+    }
   }
 }
 export default PersistData;
