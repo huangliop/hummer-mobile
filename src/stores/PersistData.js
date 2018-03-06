@@ -6,6 +6,8 @@ import { reaction } from 'mobx';
 class PersistData {
   /**
    * 设置对某个Store下的某个字段进行监听，如果该字段有变化就存储到LocalStorage
+   * 注:尽量不要使用Object对象来进行持久化，因为对象中的某个值改变不会触发反应函数。
+   * 如果必须使用对象，那请使用深拷贝对对象赋值
    * @param {*需要存储的字段名称} name
    * @param {*字段所在的Store的名称} store
    */
