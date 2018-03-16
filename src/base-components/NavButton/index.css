@@ -1,4 +1,4 @@
-:local .button {
+.button {
   display: block;
   outline: 0 none;
   -webkit-appearance: none;
@@ -18,6 +18,6 @@
   border-radius: 2px;
   text-decoration: none;
 }
-:local .active {
+.active {
   background-color: #ddd;
 }

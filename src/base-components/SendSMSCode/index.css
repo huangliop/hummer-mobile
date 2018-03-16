@@ -1,4 +1,4 @@
-:local .inputItem {
+.inputItem {
   height: 54px;
   padding-left: 15px;
   font-size: 14px;
@@ -6,7 +6,7 @@
   display: -webkit-flex;
   align-items: center;
 }
-:local .inputItem span {
+.inputItem span {
   left: 10px;
   padding: 15px 0px 15px 0px;
   line-height: 24px;
@@ -14,7 +14,7 @@
   inline-size: 44px;
   width: 80px;
 }
-:local .inputItem input {
+.inputItem input {
   padding: 8px;
   border: 0px;
   line-height: 24px;
@@ -23,7 +23,7 @@
   width: 80px;
   margin-right: 30px;
 }
-:local .btnMsCode {
+.btnMsCode {
   width: 100px;
   margin-right: 10px;
   padding: 0;

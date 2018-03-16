@@ -106,14 +106,14 @@ const Login =()=><Async load={import('./Login')}/>
 
 ## CSS样式编写
 
-默认开启了CSS-Module功能，所以不需要在样式前面添加 ':local'
+默认开启了CSS-Module功能，所以不需要在样式前面添加 ' '
 
 如果要使用全局样式，请在样式文件中使用 :global，并在引用时，使用字符串而不是变量应用
 
 ### `index.css`
 
 ```css
-:local .Button {
+  .Button {
   padding: 20px;
 }
 ```
@@ -155,7 +155,7 @@ export default Header;
   
 
 ```css
-:local .Logo {
+  .Logo {
   background-image: url(./logo.png);
 }
 ```

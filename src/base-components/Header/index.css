@@ -1,4 +1,4 @@
-:local .header {
+.header {
   height: 45px;
   line-height: 45px;
   background-color: #ffffff;
@@ -7,27 +7,27 @@
   left: 0px;
   display: -webkit-flex;
 }
-:local .leftContent {
+.leftContent {
   flex: 1;
   -webkit-box-flex: 1;
   display: -webkit-flex;
   padding-left: 15px;
   align-self: center;
 }
-:local .title {
+.title {
   font-size: 20px;
   flex: 3;
   -webkit-box-flex: 3;
   overflow: hidden;
   text-align: center;
 }
-:local .rightContent {
+.rightContent {
   flex: 1;
   -webkit-box-flex: 1;
   text-align: right;
   padding-right: 10px;
 }
-:local .leftContent img {
+.leftContent img {
   width: 13px;
   height: 22px;
 }
