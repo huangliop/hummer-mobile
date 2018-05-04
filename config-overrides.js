@@ -29,6 +29,7 @@ module.exports = function override(config, env) {
               // https://github.com/facebookincubator/create-react-app/issues/2677
               ident: 'postcss',
               plugins: () => [
+                require('postcss-icss-values') ,//support css-modules @value
                 require('postcss-flexbugs-fixes'),
                 autoprefixer({
                   browsers: [

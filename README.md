@@ -106,7 +106,7 @@ const Login =()=><Async load={import('./Login')}/>
 
 ## CSS样式编写
 
-默认开启了CSS-Module功能，所以不需要在样式前面添加 ' '
+默认开启了CSS-Module功能，所以不需要在样式前面添加 ':local'
 
 如果要使用全局样式，请在样式文件中使用 :global，并在引用时，使用字符串而不是变量应用
 
@@ -131,7 +131,18 @@ class Button extends Component {
   }
 }
 ```
- 
+### 定义css变量
+
+如果需要定义css的变量，可以参加`./color.css`里面的方法，引用方法请见[这里](https://github.com/css-modules/postcss-icss-values#importing-value)
+
+### 样式继承
+
+样式继承请使用[如下方法](https://github.com/css-modules/css-modules#dependencies)
+
+### VSCode 报错
+
+如果你使用了上面的@value @composes,vscode会警告这个符号。请在设置中将`css.validate`设为`false`
+
 ## 引入图片等资源
 
 为了减小Http的请求数目，在打包时webpack会将小于10k的图片直接转换成base64字符串放在html中。
