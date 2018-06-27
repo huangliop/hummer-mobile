@@ -1,3 +1,15 @@
 {
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "docthis.includeAuthorTag": true,
+    "docthis.includeDescriptionTag": true,
+    "docthis.includeMemberOfOnClassMembers": false,
+    "explorer.confirmDelete": false,
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "css.validate": false,
+    "git.enableSmartCommit": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "explorer.confirmDragAndDrop": false,
+    "docthis.includeDateTag": true,
+    "docthis.inferTypesFromNames": true
 }
