@@ -2,7 +2,6 @@
     "rules":{
         "function-url-quotes":"always",
         "string-no-newline":true,
-        "declaration-colon-space-after":"always",
         "string-quotes":"single",
         "selector-max-id":0,
         "keyframe-declaration-no-important":true,
