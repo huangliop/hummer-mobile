@@ -279,6 +279,10 @@ HTTPS=true npm start
 
 使用npm安装后，直接在js文件中import即可。
 
-### 单个JS文件应用
+### 单个JS文件引用
 
 如果文件符合AMD/CMD规范可以直接import，如果不符合请在public/index.html中引入
+
+## 国际化
+
+如果要做国际化，请讲所有的字符串写入assets/values/value-chinese.json中，然后在使用的时候引入使用。
