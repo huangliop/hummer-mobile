@@ -16,19 +16,19 @@ class PersistData {
      * 如果必须使用对象，那请使用深拷贝对对象赋值
      * @author Huang Li
      * @date 2018-06-22
-     * @param {*} name 需要存储的字段名称
-     * @param {*} store 字段所在的Store的名称
-     * @param {*} session 是否用session保存
+     * @param {string} name 字段名
+     * @param {string} store Store名
+     * @param {boolean} session 是否用session保存
      */
     set(name, store, session) {
         reaction(
             () => store[name],
             data => {
                 const storeage = session ? window.sessionStorage : window.localStorage;
-                if (typeof data !== 'undefined') {
-                    storeage.setItem(`${store.constructor.name}_${name}`, data);
+                if (typeof data !== 'undefined' && typeof data!=='function') {
+                    storeage.setItem(`${store.constructor.name}_${name}`, JSON.stringify(data));
                 } else {
-                    window.localStorage.removeItem(`${store.constructor.name}_${name}`, data);
+                    window.localStorage.removeItem(`${store.constructor.name}_${name}`);
                 }
             }
         );
@@ -37,14 +37,19 @@ class PersistData {
      * @description 获取转换被存储的字段，如果能转换为对象，则会自动转换为对象
      * @author Huang Li
      * @date 2018-06-22
-     * @param {*} name 字段名
-     * @param {*} store Store名
-     * @param {*} session 是否用session保存
+     * @param {string} name 字段名
+     * @param {string} store Store名
+     * @param {boolean} session 是否用session保存
      * @returns 读取到的数据
      */
     get(name, store, session) {
         const storeage = session ? window.sessionStorage : window.localStorage;
-        const str = storeage.getItem(`${store.constructor.name}_${name}`);
+        let str = storeage.getItem(`${store.constructor.name}_${name}`);
+        try {
+           str=JSON.parse(str); 
+        } catch (error) {
+           return str;
+        }
         return str;
     }
 }
