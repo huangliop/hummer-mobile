@@ -2,6 +2,9 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const compression = require('compression');
+//启用gzip
+app.use(compression());
 /**
  * 部署在测试服务器上使用
  */
@@ -28,6 +31,10 @@ app.use(context, apiProxy)
 //   console.log(`Receive URL: ${req.path}`);
 //   next()
 // });
+
+//启用gzip
+app.use(compression());
+
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/*', (req, res) => {

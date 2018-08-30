@@ -2,6 +2,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const compression = require('compression');
 /**
  * 在正式服务器上用来做代理的
  */
