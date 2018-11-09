@@ -1,6 +1,3 @@
-/**
- *
- */
 import { reaction } from 'mobx';
 
 /**
@@ -25,7 +22,7 @@ class PersistData {
             () => store[name],
             data => {
                 const storeage = session ? window.sessionStorage : window.localStorage;
-                if (typeof data !== 'undefined' && typeof data!=='function') {
+                if (typeof data !== 'undefined' && typeof data !== 'function') {
                     storeage.setItem(`${store.constructor.name}_${name}`, JSON.stringify(data));
                 } else {
                     window.localStorage.removeItem(`${store.constructor.name}_${name}`);
@@ -46,11 +43,11 @@ class PersistData {
         const storeage = session ? window.sessionStorage : window.localStorage;
         let str = storeage.getItem(`${store.constructor.name}_${name}`);
         try {
-           str=JSON.parse(str); 
+            str = JSON.parse(str);
         } catch (error) {
-           return str;
+            return str;
         }
         return str;
     }
 }
-export default PersistData;
+export default new PersistData();

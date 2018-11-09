@@ -93,17 +93,17 @@ export default class Agent {
             this.headers.delete('Content-Type');
             form = new FormData();
             Object.keys(params).forEach(key => {
-                const value=params[key];
+                const value = params[key];
                 if (value !== undefined) {
-                    form.append(key,typeof value ==="string"?value.trim():value);
+                    form.append(key, typeof value === 'string' ? value.trim() : value);
                 }
             });
         } else {
             this.headers.set('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8;');
             Object.keys(params).forEach(key => {
-                const value=params[key];
+                const value = params[key];
                 if (params[key] !== undefined) {
-                    form.push(`${key}=${encodeURIComponent(typeof value ==="string"?value.trim():value)}`);
+                    form.push(`${key}=${encodeURIComponent(typeof value === 'string' ? value.trim() : value)}`);
                 }
             });
             form = form.join('&');

@@ -1,7 +1,18 @@
 本模板工程为快速开发适配手机屏幕的网页而设计。
-整合了React、antd-mobile、mobx等框架，能让开发者从搭建工程到发布做到开箱即用。
+整合了React、mobx，能让开发者从搭建工程到发布做到开箱即用。
 
 本文档大多内容来自官方文档，如需查看原版请[点击这里](https://github.com/facebookincubator/create-react-app/blob/master/README.md)
+
+## 更新日志
+
+   >1.以create-react-app 2.1.1 为基础构建
+   >2.删除修饰器支持，[原因看这里](https://facebook.github.io/create-react-app/docs/can-i-use-decorators)
+   >3.添加sass基础样式
+   >4.添加多环境打包
+   >5.更新项目文件结构
+   >6.删除自定义webpack配置
+   >7.添加文件大小分析 (npm run analyze)
+
 ## 推荐编辑器
 [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -76,7 +87,7 @@ App构建出发布的文件到 `build` 目录.<br>
 
 关于 [发布](#deployment) .
 
-## 自定义配置
+## 自定义配置（废弃）
 如果你先自定义webpack的配置，请编辑config-overrides.js。因为使用了react-app-rewired插件所以不需要执行 eject命令。
 具体使用方法请常见 [https://github.com/timarney/react-app-rewired](https://github.com/timarney/react-app-rewired)
 
@@ -99,18 +110,16 @@ manifest.json中的信息也一并修改。
 为了使用之变小，在使用react-router打开组件时，请使用如下方法引入
 
 ```js
-const Login =()=><Async load={import('./Login')}/>
+const Login =loadable({loader: () => import('./pages/Login'),loading: MyLoadingComponent,})
 
 <Route  path='/Login' component={Login}/> 
 ```
 
 ## CSS样式编写
 
-默认开启了CSS-Module功能，所以不需要在样式前面添加 ':local'
+默认开启了CSS-Module功能（后缀为.module.css），所以不需要在样式前面添加 请用后缀.css
 
-如果要使用全局样式，请在样式文件中使用 :global，并在引用时，使用字符串而不是变量应用
-
-### `index.css`
+### `index.module.css`
 
 ```css
   .Button {
@@ -122,7 +131,7 @@ const Login =()=><Async load={import('./Login')}/>
 
 ```js
 import React, { Component } from 'react';
-import styles from './index.js';  
+import styles from './index.module.css';  
 
 class Button extends Component {
   render() {
@@ -131,13 +140,10 @@ class Button extends Component {
   }
 }
 ```
-### 定义css变量
-
-如果需要定义css的变量，可以参加`./color.css`里面的方法，引用方法请见[这里](https://github.com/css-modules/postcss-icss-values#importing-value)
 
 ### 样式继承
 
-样式继承请使用[如下方法](https://github.com/css-modules/css-modules#dependencies)
+请参考sass文档
 
 ### VSCode 报错
 

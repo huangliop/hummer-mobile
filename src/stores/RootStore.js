@@ -1,18 +1,15 @@
-import Agent from '../transport-layer/Agent';
-import PersistData from './PersistData';
-import ResponseCode from '../transport-layer/ResponseCode';
-
+import Agent from '../api/Agent';
+import ResponseCode from '../api/ResponseCode';
 import UserStore from './UserStore';
 import UIStore from './UIStore';
-import { action } from 'mobx';
-import { Toast } from 'antd-mobile';
+import { action, decorate } from 'mobx';
 
 class RootStore {
     constructor() {
         this.agent = new Agent();
-        const persistData = new PersistData();
-        this.userStore = new UserStore(this, persistData);
-        this.UIStore = new UIStore(this, persistData);
+        // const persistData = new PersistData()
+        this.userStore = new UserStore(this);
+        this.UIStore = new UIStore(this);
     }
     /**
      * @description 发送POST请求
@@ -46,18 +43,16 @@ class RootStore {
      * @param {*} distance 展示的时长 单位：秒
      */
     showToast(msg, distance) {
-        Toast.hide();
-        Toast.info(msg, distance || 3, null, false);
+        // Toast.hide();
+        // Toast.info(msg, distance || 3, null, false);
     }
     /**
      * 显示加载框，期间不可操作
-     * @param {*下面显示的提示内容，默认‘加载中’} msg
      */
-    @action
+
     showLoading() {
         this.UIStore.isShowLoading = true;
     }
-    @action
     hideLoading() {
         this.UIStore.isShowLoading = false;
     }
@@ -86,7 +81,7 @@ class RootStore {
     /**
      * @description 处理获取的结果，
      * 1.为了实现token自动刷新功能
-     * 2.实现自动根据transport-layer/ResponseCode中的错误信息显示
+     * 2.实现自动根据api/ResponseCode中的错误信息显示
      * @author Huang Li
      * @date 2018-06-22
      * @param {*} json 获取到的结果
@@ -114,4 +109,8 @@ class RootStore {
         }
     }
 }
+decorate(RootStore, {
+    hideLoading: action,
+    showLoading: action
+});
 export default new RootStore();

@@ -1,0 +1,34 @@
+//mixin定义
+
+//== 来自第三方库的mixins，需要先安装对应的npm包，如https://github.com/inier/mixins
+//@import "~mixins-sass/src/mixins";
+@import "../node_modules/mixins-sass/src/mixins";
+
+//== 自定义mixins
+//-- 屏幕断点
+$breakpoint-xs: 320px;
+$breakpoint-sm: 360px;
+$breakpoint-md: 414px;
+$breakpoint-lg: 640px;
+@mixin breakpoint($point) {
+    @if $point==lg {
+        @media (min-width: $breakpoint-lg) {
+            @content;
+        }
+    }
+    @else if $point==md {
+        @media (min-width: $breakpoint-md) {
+            @content;
+        }
+    }
+    @else if $point==sm {
+        @media (min-width: $breakpoint-sm) {
+            @content;
+        }
+    }
+    @else if $point==xs {
+        @media (min-width: $breakpoint-xs) {
+            @content;
+        }
+    }
+}

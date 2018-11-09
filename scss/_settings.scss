@@ -1,0 +1,292 @@
+// 公共scss mixins
+@import './mixins';
+//
+//## 该文档用于定义全局常量，所有组件、页面采用的全局色值、字号等定义均应遵循以下定义。
+//
+//== 全局开关变量
+$enable-flex: false !default;
+$enable-rounded: true !default;
+$enable-shadows: true !default;
+$enable-gradients: true !default;
+$enable-transitions: false !default;
+$enable-hover-media-query: false !default;
+//
+//== 前/后缀定义：
+// std-                                  系统标准相关
+// color-                                前景色，文字、描边等相关
+// fill-                                 背景色相关
+// font-                                 文字相关
+// table-                                table相关
+// -addition-                            补充
+// *-                                    组件相关，如button-， icon-
+// -color-                               组件颜色
+// -bg-                                  组件背景相关
+// -inverse                              对应板块反色
+// -width-                               宽度相关
+// -size，-size-                         尺寸相关
+// -active，-active-                     激活
+//
+//---------------------------------------------------------------------
+//** 基础定义[base]
+//
+//== 基本单位
+$UNIT: 1px;
+$REM: 16 * $UNIT;
+//== 基本色
+$std-blue: #03a9f4 !default;
+$std-red: #f4333c !default;
+$std-orange: #fc4c1d !default;
+$std-yellow: #ffc600 !default;
+$std-green: #6abf47 !default;
+$std-gray-base: #000 !default; // 标准黑
+$std-gray-darkest: #1f1f1f !default;
+$std-gray-darker: #282828 !default;
+$std-gray-dark: #333 !default;
+$std-grey: #626262 !default; // 标准灰
+$std-gray-light: #999 !default;
+$std-gray-lighter: #cdcdcd !default;
+$std-grey-lightest: #e5e5e5 !default;
+$std-white-darkest: #eee !default;
+$std-white-darker: #f5f5f5 !default;
+$std-white-dark: #f9f9f9 !default;
+$std-white-base: #fff !default; // 标准白
+
+//== 文字
+//-- 字体
+$font-family-sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$font-family-serif: Georgia, 'Times New Roman', Times, serif !default;
+$font-family-monospace: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace !default;
+$font-family-mobile: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+//-- 字号
+$font-size-root: 1 * $REM !default; //16 * UNIT
+$font-size-xl: 1.125 * $font-size-root !default; //H1: 18px
+$font-size-lg: 1 * $font-size-root !default; //H2: 16px
+$font-size-md: 0.875 * $font-size-root !default; //H3: 14px
+$font-size-sm: 0.8125 * $font-size-root !default; //H4: 13px
+$font-size-xs: 0.75 * $font-size-root !default; //H5: 12px
+$font-size-xxs: 0.625 * $font-size-root !default; //H6: 10px
+//
+//---------------------------------------------------------------------
+//** 应用定义
+//
+//== 色彩定义Color
+//-- 前景色
+$color-primary: $std-blue; // 主色
+$color-secondary: $std-orange; // 辅色
+$color-success: $std-green; //成功提示
+$color-warning: $std-yellow; //警告提示
+$color-error: $std-red; //加强警告、错误提示
+$color-important: $std-orange; // 小红点
+//-- 背景色
+$fill-body: $std-grey-lightest; // 页面背景
+$fill-body-inverse: $std-gray-darkest; // 页面反色背景
+$fill-base: $std-white-base; // 组件默认背景
+$fill-base-inverse: $std-gray-darkest; // 组件默认背景-反色
+$fill-tap: darken($std-grey-lightest, 5%); // 组件默认背景 - 按下 :active,:focus状态下的背景色
+$fill-mask: rgba(0, 0, 0, 0.4); // 遮罩背景
+$fill-disabled: $std-gray-lighter; // 通用失效背景
+$fill-success: $std-green; //成功提示
+$fill-warning: $std-yellow; //警告提示
+$fill-error: $std-red; //加强警告、错误提示
+$fill-important: $std-orange; // 小红点
+//
+//== 文字定义Font
+//-- 字体
+$font-family-base: $font-family-mobile !default;
+//-- 行高
+$line-height-base: 1 !default; // 单行行高,采用单行高时禁止overflow:hidden
+$line-height-paragraph: 1.5 !default; // 多行行高
+//-- 字号
+$font-size-h1: $font-size-xl;
+$font-size-h2: $font-size-lg;
+$font-size-h3: $font-size-md;
+$font-size-h4: $font-size-sm;
+$font-size-h5: $font-size-xs;
+$font-size-h6: $font-size-xxs;
+$font-size-base: $font-size-h3;
+$font-size-sub-lg: $font-size-h2;
+$font-size-sub: $font-size-h3;
+$font-size-info: $font-size-h3;
+$font-size-tips: $font-size-h5;
+$font-size-icon-text: $font-size-h5;
+//-- 文字色
+$color-text-base: $std-gray-dark; //基本
+$color-text-base-inverse: $std-white-base; // 基本 - 反色
+$color-text-active: $color-primary; // 激活色
+$color-text-caption: $std-gray-light; // 辅助描述
+$color-text-disabled: $std-gray-lighter; // 失效
+$color-text-warning: lighten($color-secondary, 5%);
+$color-text-highlight: lighten($color-primary, 10%);
+$color-text-placeholder: $std-gray-lighter; // 文本框提示
+$color-link: $color-text-base; // 链接
+$color-link-hover: lighten($color-link, 15%);
+$color-icon-base: $std-grey; // 许多小图标的背景，比如一些小圆点，加减号
+//
+//== 超链接Link
+//-- hover decoration
+$link-hover-decoration: none;
+//
+//== 图标Icon
+//-- 尺寸
+$icon-size-base: 14 * $UNIT !default;
+$icon-size-xxs: 15 * $UNIT !default;
+$icon-size-xs: 18 * $UNIT !default;
+$icon-size-sm: 21 * $UNIT !default;
+$icon-size-md: 22 * $UNIT !default; // 导航条上的图标、grid的图标大小
+$icon-size-lg: 36 * $UNIT !default;
+//
+//== 边框Border
+//-- 尺寸
+$border-width-sm: 1px !default;
+$border-width-md: 1px !default;
+$border-width-lg: 2 * $UNIT !default;
+//-- 边框色
+$border-color-base: $std-gray-lighter;
+$border-color-base-inverse: $std-gray-dark; // 基本 - 反色
+//
+//== 圆角Radius
+$radius-xs: 2 * $UNIT !default;
+$radius-sm: 3 * $UNIT !default;
+$radius-md: 5 * $UNIT !default;
+$radius-lg: 7 * $UNIT !default;
+$radius-max: 200 * $UNIT !default;
+$radius-circle: 50% !default;
+//
+//== 表格Table
+//-- table内留白
+$table-cell-padding: 0.75rem !default;
+$table-sm-cell-padding: 0.3rem !default;
+//-- table颜色
+$table-bg-base: transparent !default;
+$table-bg-accent: $std-gray-lighter !default;
+$table-bg-hover: $std-gray-light !default;
+$table-bg-active: $table-bg-hover !default;
+$table-border-color: $std-gray-lighter !default;
+//
+//---------------------------------------------------------------------
+//** 布局定义Layout
+//
+//== 间距定义Spacing
+//-- 水平间距
+$h-spacing-sm: 5 * $UNIT !default;
+$h-spacing-md: 8 * $UNIT !default;
+$h-spacing-lg: 15 * $UNIT !default;
+//-- 垂直间距
+$v-spacing-xs: 3 * $UNIT !default;
+$v-spacing-sm: 6 * $UNIT !default;
+$v-spacing-md: 10 * $UNIT !default;
+$v-spacing-lg: 15 * $UNIT !default;
+$v-spacing-xl: 21 * $UNIT !default;
+//-- 全局间距
+$page-padding: $v-spacing-lg $v-spacing-md !default;
+//
+//== 层级z-index
+$zindex-modal: 999;
+$zindex-progress: 2000;
+$zindex-popover: 1999;
+$zindex-toast: 1999;
+//
+//== 栅格系统Grid
+//-- 栅格尺寸
+$grid-gutter-width: 6px !default;
+//
+//---------------------------------------------------------------------
+//** 动画Animation
+//== 动画缓动
+$ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+//-- Transition
+$transition-in: all 0.3s ease-in;
+$transition-out: all 0.3s ease-out;
+$transition-in-out: all 0.3s $ease-in-out-quint;
+//
+//---------------------------------------------------------------------
+//** 组件定义
+//
+//== header
+$header-height: 45 * $UNIT !default;
+//
+//== footer
+$footer-height: 50 * $UNIT !default;
+//
+//== bar
+$bar-height-base: 45 * $UNIT !default;
+//
+//== 按钮Button
+//--尺寸
+$btn-size-xl: 56 * $UNIT;
+$btn-size-xl-text: 20 * $UNIT;
+$btn-size-lg: 49 * $UNIT;
+$btn-size-lg-text: 19 * $UNIT;
+$btn-size-md: 44 * $UNIT;
+$btn-size-md-text: 18 * $UNIT;
+$btn-size-sm: 30 * $UNIT;
+$btn-size-sm-text: 14 * $UNIT;
+$btn-size-xs: 24 * $UNIT;
+$btn-size-xs-text: 12 * $UNIT;
+$btn-min-width: 4em;
+$btn-wrap-padding: $v-spacing-lg $h-spacing-md;
+$btn-group-margin: $v-spacing-md;
+$btn-hot-area: 7px;
+//-- button radius
+$btn-border-radius-xs: $radius-xs;
+$btn-border-radius-sm: $radius-sm;
+$btn-border-radius: $radius-md;
+$btn-border-radius-lg: $radius-lg;
+//
+//== input
+//-- 尺寸
+$input-item-height-md: 44 * $UNIT;
+$input-item-height-lg: 54 * $UNIT;
+//-- 文本
+$input-font-size: 14 * $UNIT;
+//-- label
+$input-label-width: 5em; // InputItem、TextareaItem 文字长度基础值
+//-- placeholder
+$input-placeholder-font-size: $input-font-size;
+$input-placeholder-color: $color-text-placeholder;
+//
+//== avatar
+$avatar-width: 60 * $UNIT;
+$avatar-width-sm: 40 * $UNIT;
+$avatar-width-lg: 70 * $UNIT;
+$avatar-width-tiled: 30 * $UNIT;
+//
+//== popover
+$popover-font-size: $font-size-h3;
+$popover-min-width: 10em;
+$popover-arrow-width: 8px;
+$popover-radius: $radius-md;
+$popover-bg-color: $fill-mask;
+$popover-mask: $fill-mask;
+//
+//== modal
+$modal-padding: 20 * $UNIT;
+$modal-width: 80%;
+$modal-max-width: 360 * $UNIT;
+$modal-min-width: 300 * $UNIT;
+$modal-max-height: 420 * $UNIT;
+$modal-min-height: 180 * $UNIT;
+$modal-border-radius: $radius-md;
+$modal-bg-color: $fill-mask;
+//
+//== list
+$list-title-height: 30 * $UNIT;
+$list-item-height: 44 * $UNIT;
+$list-item-height-sm: 35 * $UNIT;
+//== tabs
+//-- 尺寸
+$tabs-bar-height: 35 * $UNIT;
+//-- 文字
+$tabs-bar-font-size: 15 * $UNIT;
+//-- 颜色
+$tabs-color: $color-text-base;
+$tabs-color-inverse: $color-text-base-inverse;
+$tabs-bar-active: $color-text-active;
+$tabs-bar-active-inverse: $color-text-base-inverse;
+$tabs-bar-bg-color: $fill-base;
+$tabs-bar-bg-color-inverse: $std-gray-dark;
+//
+//
+// 项目自定义重置（该项置于本文件末尾）
+@import 'project';

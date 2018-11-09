@@ -1,22 +1,22 @@
-import { observable, action } from 'mobx';
-import ApiUrls from '../transport-layer/ApiUrl';
+import { observable, action, decorate } from 'mobx';
+import ApiUrls from '../api/ApiUrl';
+import PersistData from './PersistData';
 /**
  * 用户登录  示例代码，可以删除
  */
 class UserStore {
-    constructor(rootStore, persistData) {
+    mobile;
+    nickName;
+    constructor(rootStore) {
         this.rootStore = rootStore;
-        this.persistData = persistData;
-        /**
-         * 需要存储到LocalStorage里面的数据，配置并初始化
-         */
-        this.persistData.set('nickName', this);
-        this.persistData.set('mobile', this);
+        // 添加需要持久化的监听
+        PersistData.set('nickName', this);
+        // 持久化到SeesionStorage，不传最后一个参数
+        PersistData.set('mobile', this, true);
+        //从持久层初始化数据
+        this.mobile = PersistData.get('mobile', this);
     }
-    @observable mobile = this.persistData.get('mobile', this);
-    @observable nickName = this.persistData.get('nickName', this);
 
-    @action
     setMobile(mobile) {
         this.mobile = mobile;
     }
@@ -43,4 +43,9 @@ class UserStore {
         });
     }
 }
+decorate(UserStore, {
+    mobile: observable,
+    nickName: observable,
+    setMobile: action
+});
 export default UserStore;
