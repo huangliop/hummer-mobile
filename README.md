@@ -6,11 +6,17 @@
 ## 更新日志
 
    >1.以create-react-app 2.1.1 为基础构建
+
    >2.删除修饰器支持，[原因看这里](https://facebook.github.io/create-react-app/docs/can-i-use-decorators)
+
    >3.添加sass基础样式
+
    >4.添加多环境打包
+
    >5.更新项目文件结构
+
    >6.删除自定义webpack配置
+   
    >7.添加文件大小分析 (npm run analyze)
 
 ## 推荐编辑器
