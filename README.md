@@ -16,7 +16,7 @@
    >5.更新项目文件结构
 
    >6.删除自定义webpack配置
-   
+
    >7.添加文件大小分析 (npm run analyze)
 
 ## 推荐编辑器
@@ -247,7 +247,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 由于现在都是前后的分离的，前端调用的接口都是跨域的，所以需要进行代理
 
-在本地开发的时候，你只需要将相对路径配到./src/transport-layer/ApiUrl.js中即可。
+在本地开发的时候，你只需要将相对路径配到./src/api/ApiUrl.js中即可。
 例如：`LOGIN: '/login'`
 
 然后修改`package.json`中的 `proxy`的值。

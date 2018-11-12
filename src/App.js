@@ -25,6 +25,10 @@ const MyLoadingComponent = ({ isLoading, error }) => {
         return null;
     }
 };
+// 页面导入组件
+const pageLoader = importFuction => {
+    return loadable({ loader: () => importFuction, loading: MyLoadingComponent });
+};
 /**
  * 如果要移除切换动画，请删除组件 AnimatedSwitch
  */
@@ -39,11 +43,7 @@ export default class App extends Component {
                             atLeave={{ opacity: 0 }}
                             atActive={{ opacity: 1 }}> */}
                     <div>
-                        <Route
-                            path="/"
-                            exact
-                            component={loadable({ loader: () => import('./pages/Home'), loading: MyLoadingComponent })}
-                        />
+                        <Route path="/" exact component={pageLoader(import('./pages/Home'))} />
                         <Route
                             path="/login"
                             exact
