@@ -44,11 +44,7 @@ export default class App extends Component {
                             atActive={{ opacity: 1 }}> */}
                     <div>
                         <Route path="/" exact component={pageLoader(import('./pages/Home'))} />
-                        <Route
-                            path="/login"
-                            exact
-                            component={loadable({ loader: () => import('./pages/Login'), loading: MyLoadingComponent })}
-                        />
+                        <Route path="/login" exact component={pageLoader(import('./pages/Login'))} />
                     </div>
                     {/* </AnimatedSwitch> */}
                 </Router>
