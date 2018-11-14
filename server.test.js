@@ -18,7 +18,8 @@ const options = {
     changeOrigin: true,
     pathRewrite:{
       '^/api':'' //重写代理的路径，如http://localhost:3000/api/login会被代理到http://127.0.0.1:8081/login
-    }
+    },
+    logLevel:'debug'
 }
 //将options对象用proxy封装起来，作为参数传递
 const apiProxy = proxy(options);
