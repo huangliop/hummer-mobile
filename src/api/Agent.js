@@ -1,3 +1,4 @@
+import 'isomorphic-fetch';
 /**
  * @description 网络请求的基础类，功能包含，发起请求、提示错误
  * @author Huang Li
