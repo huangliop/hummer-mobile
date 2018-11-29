@@ -25,7 +25,7 @@ class PersistData {
                 if (typeof data !== 'undefined' && typeof data !== 'function') {
                     storeage.setItem(`${store.constructor.name}_${name}`, JSON.stringify(data));
                 } else {
-                    window.localStorage.removeItem(`${store.constructor.name}_${name}`);
+                    storeage.removeItem(`${store.constructor.name}_${name}`);
                 }
             }
         );
