@@ -22,8 +22,12 @@ class PersistData {
             () => store[name],
             data => {
                 const storeage = session ? window.sessionStorage : window.localStorage;
-                if (typeof data !== 'undefined' && typeof data !== 'function') {
-                    storeage.setItem(`${store.constructor.name}_${name}`, JSON.stringify(data));
+                if (typeof data !== 'undefined' && typeof data !== 'function' && data !== null) {
+                    if (typeof data === 'object') {
+                        storeage.setItem(`${store.constructor.name}_${name}`, JSON.stringify(data));
+                    } else {
+                        storeage.setItem(`${store.constructor.name}_${name}`, data);
+                    }
                 } else {
                     storeage.removeItem(`${store.constructor.name}_${name}`);
                 }
