@@ -9,6 +9,7 @@ export default class Agent {
         this.headers = new Headers();
         this.headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
         this.headers.append('Accept', 'application/json, text/javascript, */*; q=0.01');
+        this.headers.set('Pragma', 'no-cache');
     }
     /**
      * @description 接受接口的返回
