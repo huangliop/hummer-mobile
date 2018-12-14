@@ -60,7 +60,7 @@
     "react/no-did-update-set-state":"error",
     "react/no-is-mounted":"error",
     "react/no-array-index-key":"error",
-    "react/no-multi-comp":"warn",
+    "react/no-multi-comp":"off",
     "react/no-string-refs":"error",
     "react/no-unescaped-entities":"error",
     "react/no-unused-state":"error",

@@ -1,6 +1,8 @@
 本模板工程为快速开发适配手机屏幕的网页而设计。
 整合了React、mobx，能让开发者从搭建工程到发布做到开箱即用。
 
+UI库建议使用[MaterialUI](https://material-ui.com/)
+
 本文档大多内容来自官方文档，如需查看原版请[点击这里](https://github.com/facebookincubator/create-react-app/blob/master/README.md)
 
 ## 更新日志
