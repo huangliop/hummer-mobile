@@ -252,25 +252,13 @@ if (process.env.NODE_ENV !== 'production') {
 在本地开发的时候，你只需要将相对路径配到./src/api/ApiUrl.js中即可。
 例如：`LOGIN: '/login'`
 
-然后修改`package.json`中的 `proxy`的值。
+然后修改`src/setupProxy.js`中的`target`值。
 例如：
 ```js
   "proxy": "http://localhost:4000",
 ```
 这样配置后所有XHR请求都会被代理到本地的4000端口。
 
-或者这样配置两种不同的代理。
-```js
-  "proxy":{
-    "/api/a":{ 
-      "target": "http://localhost:4000"
-    },
-    "/api/b":{ 
-      "target": "http://localhost:4001",
-      "ws": true //开启WebSocket代理
-    }
-  }
-```
 
 ## 在开发中使用https
 
@@ -296,7 +284,3 @@ HTTPS=true npm start
 ### 单个JS文件引用
 
 如果文件符合AMD/CMD规范可以直接import，如果不符合请在public/index.html中引入
-
-## 国际化
-
-如果要做国际化，请讲所有的字符串写入assets/values/value-chinese.json中，然后在使用的时候引入使用。
