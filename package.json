@@ -27,7 +27,6 @@
     "start": "react-scripts start",
     "build:test": "ncp .env.production.test .env.production.local && react-scripts build",
     "build:pro": "ncp .env.production.pro .env.production.local && react-scripts build",
-    "build": "ncp .env.production.test .env.production.local && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "./node_modules/.bin/eslint  -c .eslintrc ./src --fix && stylelint src/**/*.css  --fix"
