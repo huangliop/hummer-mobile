@@ -95,9 +95,9 @@ App构建出发布的文件到 `build` 目录.<br>
 
 关于 [发布](#deployment) .
 
-## 自定义配置（废弃）
-如果你先自定义webpack的配置，请编辑config-overrides.js。因为使用了react-app-rewired插件所以不需要执行 eject命令。
-具体使用方法请常见 [https://github.com/timarney/react-app-rewired](https://github.com/timarney/react-app-rewired)
+## 自定义配置
+
+如果你先自定义webpack的配置，可以使用这个库[rescripts](https://github.com/harrysolovay/rescripts)
 
 ## 提交代码自动格式化
 
