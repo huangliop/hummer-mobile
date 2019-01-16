@@ -112,6 +112,8 @@ To format our code whenever we make a commit in git, we need to install the foll
 还可替换favicon.ico为自己的ico。
 manifest.json中的信息也一并修改。
 
+如果你想动态修改标题，请使用这个[组件](https://github.com/nfl/react-helmet)
+
 ## 异步加载组件
 
 因为默认情况下，webpack会将引用到的包都打包到同一个JS文件中，所以可能入口js文件可能会很大。
