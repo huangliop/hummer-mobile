@@ -5,22 +5,6 @@ UI库建议使用[MaterialUI](https://material-ui.com/)
 
 本文档大多内容来自官方文档，如需查看原版请[点击这里](https://github.com/facebookincubator/create-react-app/blob/master/README.md)
 
-## 更新日志
-
-   >1.以create-react-app 2.1.1 为基础构建
-
-   >2.删除修饰器支持，[原因看这里](https://facebook.github.io/create-react-app/docs/can-i-use-decorators)
-
-   >3.添加sass基础样式
-
-   >4.添加多环境打包
-
-   >5.更新项目文件结构
-
-   >6.删除自定义webpack配置
-
-   >7.添加文件大小分析 (npm run analyze)
-
 ## 推荐编辑器
 [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -286,3 +270,7 @@ HTTPS=true npm start
 ### 单个JS文件引用
 
 如果文件符合AMD/CMD规范可以直接import，如果不符合请在public/index.html中引入
+
+## 自定义Babel配置(.babelrc中配置了打开装饰件的语法)
+
+删除调`.rescriptsrc.js`中的注释即可

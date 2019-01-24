@@ -53,8 +53,5 @@
   "devDependencies": {
     "@rescripts/cli": "0.0.10",
     "@rescripts/rescript-env": "0.0.5"
-  },
- "rescripts": [
-      ["use-eslint-config", ".eslintrc"]
-   ]
+  }
 }
