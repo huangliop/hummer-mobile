@@ -5,11 +5,6 @@ import { Provider } from 'mobx-react';
 import rootStore from './stores/RootStore';
 import loadable from 'react-loadable';
 import Loader from 'react-loader-spinner';
-// import { AnimatedSwitch } from 'react-router-transition';
-
-// configure({
-//     enforceActions: true
-// });
 //加载新页面的过度loader
 const MyLoadingComponent = ({ isLoading, error }) => {
     if (isLoading) {
@@ -37,16 +32,10 @@ export default class App extends Component {
         return (
             <Provider {...rootStore}>
                 <Router>
-                    {/* <AnimatedSwitch
-                            className={styles.switchWrapper}
-                            atEnter={{ opacity: 0 }}
-                            atLeave={{ opacity: 0 }}
-                            atActive={{ opacity: 1 }}> */}
                     <div>
                         <Route path="/" exact component={pageLoader(import('./pages/Home'))} />
                         <Route path="/login" exact component={pageLoader(import('./pages/Login'))} />
                     </div>
-                    {/* </AnimatedSwitch> */}
                 </Router>
             </Provider>
         );
