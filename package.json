@@ -23,11 +23,11 @@
   },
   "scripts": {
     "analyze": "source-map-explorer build/static/js/main.*",
-    "start": "react-scripts start",
-    "build:test": "env-cmd .env.test react-scripts build",
-    "build": " react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "rescripts start",
+    "build:test": "env-cmd .env.test rescripts build",
+    "build": " rescripts build",
+    "test": "rescripts test",
+    "eject": "rescripts eject",
     "lint": "./node_modules/.bin/eslint  -c .eslintrc ./src --fix && stylelint src/**/*.css  --fix"
   },
   "eslintConfig": {
@@ -49,5 +49,12 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "@rescripts/cli": "0.0.10",
+    "@rescripts/rescript-env": "0.0.5"
+  },
+ "rescripts": [
+      ["use-eslint-config", ".eslintrc"]
+   ]
 }

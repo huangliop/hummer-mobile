@@ -3,6 +3,13 @@
   "plugins": [
     "react"
   ],
+  "settings": {
+    "react": {
+      "createClass": "createReactClass",
+      "pragma": "React",  
+      "version": "detect"
+    }
+  },
   "extends": ["react-app","eslint:recommended","plugin:react/recommended"],
   "rules": {
     "valid-jsdoc":["warn",{"requireReturn":false,"requireReturnDescription": false,"requireReturnType": false}],
