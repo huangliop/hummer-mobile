@@ -31,7 +31,7 @@ export default class App extends Component {
     render() {
         return (
             <Provider {...rootStore}>
-                <Router>
+                <Router basename={process.env.PUBLIC_URL}>
                     <div>
                         <Route path="/" exact component={pageLoader(import('./pages/Home'))} />
                         <Route path="/login" exact component={pageLoader(import('./pages/Login'))} />
