@@ -21,7 +21,8 @@ UI库建议使用[MaterialUI](https://material-ui.com/)
 - [添加自定义的环境变量](#添加自定义的环境变量)
 - [调用接口](#调用接口)
 - [在开发中使用https](#在开发中使用https) 
-- [应用第三方JS](#应用第三方JS)
+- [引用第三方JS](#引用第三方JS)
+- [自定义Babel配置]()
 
 ## 文件结构
 
@@ -261,7 +262,7 @@ set HTTPS=true&&npm start
 ```bash
 HTTPS=true npm start
 ```
-## 应用第三方JS
+## 引用第三方JS
 
 ### node模块引用
 
