@@ -10,13 +10,15 @@ module.exports=[
       config=>{
         const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
         // console.log(config);
-        config.plugins.push(
+        if(config.mode==='production'){
+          config.plugins.push(
             new BundleAnalyzerPlugin({
                 analyzerMode: "static",
                 // openAnalyzer: false,
                 reportFilename: "report.html"
             })
         );
+        }
         return config;
       }
     ]

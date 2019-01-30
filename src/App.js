@@ -4,16 +4,10 @@ import styles from './App.module.css';
 import { Provider } from 'mobx-react';
 import rootStore from './stores/RootStore';
 import loadable from 'react-loadable';
-import Loader from 'react-loader-spinner';
 //加载新页面的过度loader
 const MyLoadingComponent = ({ isLoading, error }) => {
     if (isLoading) {
-        return (
-            <div className={styles.loaderContainer}>
-                {' '}
-                <Loader type="Watch" color="#03a9f4" height="50" width="50" />{' '}
-            </div>
-        );
+        return <div className={styles.loaderContainer}>请自己添加loading</div>;
     } else if (error) {
         return <div>加载页面出错，请刷新</div>;
     } else {
