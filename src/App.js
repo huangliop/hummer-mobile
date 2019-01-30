@@ -4,6 +4,8 @@ import styles from './App.module.css';
 import { Provider } from 'mobx-react';
 import rootStore from './stores/RootStore';
 import loadable from 'react-loadable';
+import ErrorBoundary from './components/ErrorBoundary';
+
 //加载新页面的过度loader
 const MyLoadingComponent = ({ isLoading, error }) => {
     if (isLoading) {
@@ -26,10 +28,10 @@ export default class App extends Component {
         return (
             <Provider {...rootStore}>
                 <Router basename={process.env.PUBLIC_URL}>
-                    <div>
+                    <ErrorBoundary>
                         <Route path="/" exact component={pageLoader(import('./pages/Home'))} />
                         <Route path="/login" exact component={pageLoader(import('./pages/Login'))} />
-                    </div>
+                    </ErrorBoundary>
                 </Router>
             </Provider>
         );
