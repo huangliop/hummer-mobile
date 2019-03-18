@@ -9,7 +9,7 @@ module.exports=[
       ],
       config=>{
         const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
-        // console.log(config);
+        console.log(config);
         if(config.mode==='production'){
           config.plugins.push(
             new BundleAnalyzerPlugin({
@@ -18,6 +18,9 @@ module.exports=[
                 reportFilename: "report.html"
             })
         );
+        if (process.env.npm_lifecycle_event === "build") {
+            config.devtool = "cheap-module-source-map";
+        }
         }
         return config;
       }
