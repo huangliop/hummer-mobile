@@ -7,7 +7,6 @@ import { action, decorate } from 'mobx';
 class RootStore {
     constructor() {
         this.agent = new Agent();
-        // const persistData = new PersistData()
         this.userStore = new UserStore(this);
         this.UIStore = new UIStore(this);
     }
