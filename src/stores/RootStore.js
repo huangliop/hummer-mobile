@@ -15,11 +15,11 @@ class RootStore {
      * @description 发送POST请求
      * @param {*} url 请求地址
      * @param {*} _params 参数
-     * @param {*} showLoading 显示loading图像
+     * @param {*} opts 其他操作参数
      * @returns Promise
      */
-    sendPost(url, _params, showLoading) {
-        showLoading && this.showLoading();
+    sendPost(url, _params, opts = { showLoading: false }) {
+        opts.showLoading && this.showLoading();
         const params = this._buildParams(_params);
         return this.agent.post(url, params).then(json => this._handleData(json, url, params));
     }
@@ -27,11 +27,11 @@ class RootStore {
      * @description 发送GET请求
      * @param {*} url 请求地址
      * @param {*} _params 参数
-     * @param {*} showLoading 显示loading图像
+     * @param {*} opts 其他操作参数
      * @returns Promise
      */
-    sendGet(url, _params, showLoading) {
-        showLoading && this.showLoading();
+    sendGet(url, _params, opts = { showLoading: false }) {
+        opts.showLoading && this.showLoading();
         const params = this._buildParams(_params);
         return this.agent.get(url, params).then(json => this._handleData(json, url, params));
     }
