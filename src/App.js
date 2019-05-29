@@ -18,7 +18,7 @@ const MyLoadingComponent = ({ isLoading, error }) => {
 };
 // 页面导入组件
 const pageLoader = importFuction => {
-    return loadable({ loader: () => importFuction, loading: MyLoadingComponent });
+    return loadable({ loader: importFuction, loading: MyLoadingComponent });
 };
 /**
  * 如果要移除切换动画，请删除组件 AnimatedSwitch
@@ -29,8 +29,8 @@ export default class App extends Component {
             <Provider {...rootStore}>
                 <Router basename={process.env.PUBLIC_URL}>
                     <ErrorBoundary>
-                        <Route path="/" exact component={pageLoader(import('./pages/Home'))} />
-                        <Route path="/login" exact component={pageLoader(import('./pages/Login'))} />
+                        <Route path="/" exact component={pageLoader(() => import('./pages/Home'))} />
+                        <Route path="/login" exact component={pageLoader(() => import('./pages/Login'))} />
                     </ErrorBoundary>
                 </Router>
             </Provider>
