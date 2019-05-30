@@ -17,7 +17,8 @@ class ResponseCode {
      * @param {*} code 错误码
      * @returns 错误的中文信息
      */
-    showMsg(code) {
+    getMsg(code) {
+        if (!code) return '未知的错误';
         if (code === '-1') return;
         return this.codes[code.toString()];
     }

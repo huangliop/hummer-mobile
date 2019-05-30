@@ -2,7 +2,7 @@
  * @description 网络请求的基础类，功能包含，发起请求、提示错误
  * @class Agent
  */
-export default class Agent {
+class Agent {
     /**
      * @description 接受接口的返回
      * @param {*} response 返回的response
@@ -17,11 +17,9 @@ export default class Agent {
 
     /**
      * @description 发生错误的回调
-     * @param {*} error 错误内容
      * @returns undefined
      */
-    handleCatch(error) {
-        console.error(error);
+    handleCatch() {
         return undefined;
     }
 
@@ -137,7 +135,6 @@ export default class Agent {
 
         return fetch(fullUrl, rq)
             .then(this.handleResponse)
-            .then(json => json)
             .catch(this.handleCatch);
     }
 
@@ -184,7 +181,8 @@ export default class Agent {
 
         return fetch(fullUrl, rq)
             .then(this.handleResponse)
-            .then(json => json)
             .catch(this.handleCatch);
     }
 }
+
+export default new Agent();
