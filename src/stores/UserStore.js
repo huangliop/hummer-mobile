@@ -10,9 +10,6 @@ class UserStore extends Store {
         super();
         super.persistParam('token');
         Store.commonRequestData = { token: this.token };
-        this.sendGet('/log', {}, { loading: true }).then(json => {
-            console.log(json);
-        });
     }
 }
 export default UserStore;
