@@ -9,7 +9,8 @@ module.exports = function(app) {
             target: 'http://127.0.0.1:8081',
             pathRewrite: {
                 '^/api': '' //重写代理的路径，如http://localhost:8888/api/login会被代理到http://127.0.0.1:8081/login
-            }
+            },
+            changeOrigin: true
         })
     );
 };
