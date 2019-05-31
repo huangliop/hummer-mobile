@@ -52,6 +52,7 @@
   ],
   "devDependencies": {
     "@rescripts/cli": "0.0.10",
-    "@rescripts/rescript-env": "0.0.5"
+    "@rescripts/rescript-env": "0.0.5",
+    "eslint-plugin-react-hooks": "^1.6.0"
   }
 }
