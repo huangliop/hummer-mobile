@@ -29,6 +29,10 @@ app.use(context, apiProxy)
 //   console.log(`Receive URL: ${req.path}`);
 //   next()
 // });
+
+//启用gzip
+app.use(compression());
+
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/*', (req, res) => {
